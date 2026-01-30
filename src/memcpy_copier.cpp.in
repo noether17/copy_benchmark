@@ -1,0 +1,10 @@
+#include <cstring>
+
+#include "${HEADER_FILE_NAME}"
+
+// clang-format off
+void ${COPIER_FUNCTION_NAME}(
+    ${DATA_TYPE}* dest, ${DATA_TYPE} const* src, std::size_t n) {
+  std::memcpy(dest, src, n * sizeof(${DATA_TYPE}));
+}
+// clang-format on
