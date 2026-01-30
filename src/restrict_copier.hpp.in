@@ -1,0 +1,10 @@
+#pragma once
+
+#include <cstddef>
+#include <cstdint>
+
+// clang-format off
+void ${COPIER_FUNCTION_NAME}(
+    ${DATA_TYPE}* __restrict dest, ${DATA_TYPE} const* __restrict src,
+    std::size_t n);
+// clang-format on

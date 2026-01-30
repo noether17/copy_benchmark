@@ -1,0 +1,11 @@
+#include "${HEADER_FILE_NAME}"
+
+// clang-format off
+void ${COPIER_FUNCTION_NAME}(
+    ${DATA_TYPE}* __restrict dest, ${DATA_TYPE} const* __restrict src,
+    std::size_t n) {
+  for (std::size_t i = 0; i < n; ++i) {
+    dest[i] = src[i];
+  }
+}
+// clang-format on
