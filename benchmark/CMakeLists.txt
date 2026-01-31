@@ -41,3 +41,9 @@ message(STATUS "COPIERS: ${COPIERS}")
 foreach(COPIER IN LISTS COPIERS)
   generate_copier_benchmark("${COPIER}")
 endforeach()
+
+add_custom_target(run_benchmark
+  "bash"
+  "${CMAKE_SOURCE_DIR}/scripts/run_benchmark.sh"
+  "${CMAKE_CURRENT_BINARY_DIR}/copy_benchmark"
+)
