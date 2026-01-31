@@ -20,5 +20,5 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
 
 include_directories(include)
 add_subdirectory(include)
-add_subdirectory(benchmark)
 add_subdirectory(src)
+add_subdirectory(benchmark)

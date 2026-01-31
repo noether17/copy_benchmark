@@ -1,0 +1,7 @@
+#include "${COPIER_HEADER_FILE}"
+#include "BM_copy.hpp"
+#include "REPEAT.hpp"
+
+// clang-format off
+BM_COPY(${COPIER}, ${COPIER_DATA_TYPE});
+// clang-format on
