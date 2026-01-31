@@ -1,0 +1,63 @@
+{
+  "version": 10,
+  "cmakeMinimumRequired": {
+    "major": 4,
+    "minor": 0,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "default",
+      "displayName": "Default Config",
+      "description": "Default build options for GCC",
+      "binaryDir": "${sourceDir}/build/default",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "$env{GCC_CXX_FLAGS}",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+      },
+      "environment": {
+        "GCC_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Werror -march=native -save-temps"
+      }
+    },
+    {
+      "name": "O0",
+      "inherits": "default",
+      "displayName": "O0",
+      "description": "Builds using optimization level O0",
+      "binaryDir": "${sourceDir}/build/O0",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "$env{GCC_CXX_FLAGS} -O0"
+      }
+    },
+    {
+      "name": "O1",
+      "inherits": "default",
+      "displayName": "O1",
+      "description": "Builds using optimization level O1",
+      "binaryDir": "${sourceDir}/build/O1",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "$env{GCC_CXX_FLAGS} -O1"
+      }
+    },
+    {
+      "name": "O2",
+      "inherits": "default",
+      "displayName": "O2",
+      "description": "Builds using optimization level O2",
+      "binaryDir": "${sourceDir}/build/O2",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "$env{GCC_CXX_FLAGS} -O2"
+      }
+    },
+    {
+      "name": "O3",
+      "inherits": "default",
+      "displayName": "O3",
+      "description": "Builds using optimization level O3",
+      "binaryDir": "${sourceDir}/build/O3",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "$env{GCC_CXX_FLAGS} -O3"
+      }
+    }
+  ]
+}

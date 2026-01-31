@@ -3,20 +3,10 @@ project(memcpy_benchmark LANGUAGES CXX)
 
 find_package(benchmark 1.8.2 REQUIRED)
 
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
-  -Wall \
-  -Wextra \
-  -Wpedantic \
-  -Werror \
-  -O3 \
-  -march=native \
-  -mtune=native \
-  -save-temps \
-  -masm=intel"
-)
+
+message(STATUS "CMAKE_CXX_FLAGS: ${CMAKE_CXX_FLAGS}")
 
 add_subdirectory(src)
 add_subdirectory(benchmark)
