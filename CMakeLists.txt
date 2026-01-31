@@ -18,7 +18,5 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
   -masm=intel"
 )
 
-include_directories(include)
-add_subdirectory(include)
 add_subdirectory(src)
 add_subdirectory(benchmark)

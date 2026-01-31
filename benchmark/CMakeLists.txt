@@ -4,17 +4,27 @@ target_link_libraries(copy_benchmark PRIVATE
   benchmark::benchmark_main
 )
 
-add_library(warmup_copier_benchmark OBJECT warmup_copier_benchmark.cpp)
-target_link_libraries(warmup_copier_benchmark PRIVATE
-  benchmark::benchmark
-  warmup_copier
+add_library(warmup_copier STATIC warmup_copier.hpp)
+set_target_properties(warmup_copier PROPERTIES
+  LINKER_LANGUAGE CXX
+  DATA_TYPE std::uint8_t
+  HEADER_FILE_NAME warmup_copier.hpp
 )
-target_link_libraries(copy_benchmark PRIVATE
-  warmup_copier
-)
-target_sources(copy_benchmark PRIVATE
-  $<TARGET_OBJECTS:warmup_copier_benchmark>
-)
+
+#add_library(warmup_copier_benchmark
+#  OBJECT warmup_copier_benchmark.hpp
+#  LINKER_LANGUAGE CXX
+#)
+#target_link_libraries(warmup_copier_benchmark PRIVATE
+#  benchmark::benchmark
+#  warmup_copier
+#)
+#target_link_libraries(copy_benchmark PRIVATE
+#  warmup_copier
+#)
+#target_sources(copy_benchmark PRIVATE
+#  $<TARGET_OBJECTS:warmup_copier_benchmark>
+#)
 
 set(GENERATED_FILE_DIR "${CMAKE_CURRENT_BINARY_DIR}/generated")
 function(generate_copier_benchmark COPIER)
@@ -37,6 +47,8 @@ function(generate_copier_benchmark COPIER)
   target_link_libraries(copy_benchmark PRIVATE "${COPIER}")
   target_sources(copy_benchmark PRIVATE $<TARGET_OBJECTS:${BENCHMARK_NAME}>)
 endfunction()
+
+generate_copier_benchmark(warmup_copier)
 
 get_property(COPIERS GLOBAL PROPERTY COPIER_FUNCTIONS)
 message(STATUS "COPIERS: ${COPIERS}")
