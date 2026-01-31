@@ -22,6 +22,7 @@ function(generate_copier_benchmark COPIER)
     "${SOURCE_FILE_PATH}"
   )
   add_library("${BENCHMARK_NAME}" OBJECT "${SOURCE_FILE_PATH}")
+  target_compile_features("${BENCHMARK_NAME}" PRIVATE cxx_std_20)
   target_include_directories("${BENCHMARK_NAME}" PRIVATE
     "${CMAKE_CURRENT_SOURCE_DIR}"
   )
