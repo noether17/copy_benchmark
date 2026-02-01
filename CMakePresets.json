@@ -16,7 +16,7 @@
         "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
       },
       "environment": {
-        "GCC_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Werror -march=native -save-temps"
+        "GCC_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Werror -march=native -save-temps -masm=intel"
       }
     },
     {
