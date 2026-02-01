@@ -56,6 +56,15 @@ def main():
                               for bm in current_copier_bms])
             plt.semilogx(current_copier_bytes, current_copier_bytes_per_second,
                          label=copier, color=color, marker=marker)
+        l1_cache = [cache for cache in caches
+                    if cache['level'] == 1 and cache['type'] == 'Data'][0]
+        plt.axvline(l1_cache['size'], color='b', alpha=0.5, linestyle='--',
+                    label='Caches')
+        l2_cache = [cache for cache in caches if cache['level'] == 2][0]
+        plt.axvline(l2_cache['size'], color='b', alpha=0.5, linestyle='--')
+        l3_cache = [cache for cache in caches if cache['level'] == 3][0]
+        plt.axvline(l3_cache['size'], color='b', alpha=0.5, linestyle='--')
+
         out_filename = filename.split('.')[0] + f"_{data_byte_size}_plot.png"
         plt.xlabel("Bytes")
         plt.ylabel("Bytes per Second")
